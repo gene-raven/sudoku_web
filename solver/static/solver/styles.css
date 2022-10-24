@@ -1,0 +1,47 @@
+body {
+    margin: 30px;
+}
+
+.grid-container {
+    display: grid;
+    /*grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px;*/
+    grid-template-columns: repeat(9, 0fr);
+    grid-auto-rows: 40px;
+    margin: 5px
+}
+.row {
+    display: flex;
+    height: 40px;
+    width: 360px;
+}
+.grid-item {
+    width: 40px;
+    height: 40px;
+}
+
+input {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.btnn {
+    width: 60px;
+    margin-left: 5px;
+    margin-top: 5px;
+    background-color: aliceblue;
+    border: 1px solid rgb(122, 122, 224)
+}
+
+.border-top {
+    border-top: double;
+
+}
+
+.border-right {
+    border-left: double;
+}
+
+label, h1 {
+    margin-left: 5px;
+}

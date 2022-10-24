@@ -1,0 +1,33 @@
+{% extends "solver/layout.html" %}
+
+{% block body %}
+    <h1>Sudoku Solver</h1>
+    {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+    {% endif %} 
+
+    {% if solved %}
+        <label for="sudoku-grid">Solution:</label>
+    {% else %}
+        <label for="sudoku-grid">Input unfinished sudoku grid:</label>
+    {% endif %}
+
+    <form  id="sudoku-grid" action="{% url 'solver:index' %}" method="post">
+        {% csrf_token %}
+        <div class="grid-container">
+            {%for num in grid %}
+                {% if num.2 %}
+                    <div class="grid-item{{num.3}}"><input type="number" name="{{num.0}},{{num.1}}"  value="{{num.2}}"></div>
+                {% else %}
+                    <div class="grid-item{{num.3}}"><input type="number" name="{{num.0}},{{num.1}}" min="1" max="9" ></div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <input type="submit" value="Solve" class="btn btnn">
+        <!--button class="clear">Clear</button-->
+        <input type="button" value="Clear" id="resetBtn" onClick="this.form.reset()" class="btn btnn">
+        <a href="{% url 'solver:index' %}" class="btn btnn">New</a>
+    </form>
+{% endblock %}
