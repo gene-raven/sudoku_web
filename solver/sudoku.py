@@ -109,7 +109,7 @@ class Sudoku():
 
 class SudokuSolver():
 
-    def __init__(self, sudoku: Sudoku):
+    def __init__(self, sudoku):
         '''
         Initialize SudokuSolver
 
@@ -463,3 +463,22 @@ class SudokuSolver():
 
 class InvalidSudoku(Exception):
     '''Raise for invalid sudoku grid'''
+
+class DiagonalSudoku(Sudoku):
+
+    def neighbors(self, var):
+        '''
+        Find all neighbors of the variable
+        
+        :param var: variable
+        :type var: Variable
+        :return: all variables that in the same box, column or row with passed variable
+        :rtype: set[Variable]
+        '''
+        return set(
+            v for v in self.variables
+            if (v.i == var.i or v.j == var.j or v.box == var.box
+            or (var.i == var.j and v.i == v.j)
+            or (var.i + var.j == self.ncolumns - 1 and v.i + v.j == self.ncolumns - 1))
+            and (v != var)
+        )
