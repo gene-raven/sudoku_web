@@ -8,6 +8,12 @@
         <link rel="stylesheet" href="{% static 'solver/styles.css' %}">
     </head>
     <body>
+        <nav>
+            <ul>
+                <li><a href="{% url 'solver:index' %}">Stardard Sudoku</a></li>
+                <li><a href="{% url 'solver:x-sudoku' %}">X-Sudoku</a></li>
+            </ul>
+        </nav>
         {% block body %}{% endblock %}
     </body>
 </html>

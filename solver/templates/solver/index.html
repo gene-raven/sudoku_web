@@ -14,7 +14,7 @@
         <label for="sudoku-grid">Input unfinished sudoku grid:</label>
     {% endif %}
 
-    <form  id="sudoku-grid" action="{% url 'solver:index' %}" method="post">
+    <form  id="sudoku-grid" action="{% url page %}" method="post">
         {% csrf_token %}
         <div class="grid-container">
             {%for num in grid %}

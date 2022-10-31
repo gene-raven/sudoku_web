@@ -45,3 +45,20 @@ input {
 label, h1 {
     margin-left: 5px;
 }
+
+nav ul{
+    padding-left: 10px;
+    list-style: none;
+    text-align: justify;
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+.diagonal input{
+    background-color: rgba(176, 196, 222, 0.6);
+}
+
+nav li {
+    margin-right: 10px;   
+}

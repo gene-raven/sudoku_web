@@ -6,3 +6,8 @@ def borders(i, j):
     if not j % 3 and j:
         s += " border-left"
     return s
+
+def x_borders(i, j):
+    s = borders(i, j)
+    if i == j or i + j == 8: s += " diagonal"
+    return s
